@@ -1,0 +1,17 @@
+.homepage_container {
+    &__hero-image {
+        height: 100vh;
+        float: left;
+        width: 60vw;
+        object-fit: cover; // To crop image to fill the aspect ratio
+        object-position: 0 100%; // To crop image from right on responsive screen
+
+        @include respond(tab-port) {
+            width: 40vw;
+        }
+
+        @include respond(phone) {
+            display: none;
+        }
+    }
+}
