@@ -1,22 +1,17 @@
 import React, { useState, useMemo } from 'react'
 import UserPannel from 'components/UserPannel'
+import Split from 'split.js'
 import EditorPannel from 'components/EditorPannel'
 
 const EditorPage = () => {
-  const [userPannelCollapsed, setUserPannelCollapsed] = useState(true);
-  const [userPannelWidth, editorPannelWidth] = useMemo(() => {
-    return userPannelCollapsed ? ['10vw','90vw'] : ['20vw','80vw']
-  }, [userPannelCollapsed])
+  const [userPannelOpen, setUserPannel] = useState(true);
+  const [videoPannelOpen, setVideoPannel] = useState(false);
+  const [terminalPannelOpen, setTerminalPannel] = useState(false);
 
   return (
     <div className='editor_page'>
-      <div>
-        <UserPannel width={userPannelWidth} />
-      </div>
-      <div >
-        <EditorPannel width={editorPannelWidth} />
-      </div>
-
+      <UserPannel isOpen={userPannelOpen} toggleUserPannel={setUserPannel} />
+      <EditorPannel videoPannelOpen={videoPannelOpen} setVideoPannel={setVideoPannel} terminalPannelOpen={terminalPannelOpen} setTerminalPannel={setTerminalPannel}/>
     </div>
   )
 }

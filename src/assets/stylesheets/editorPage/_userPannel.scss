@@ -1,5 +1,19 @@
-.user-pannel{
-    background-color: blueviolet;
-    height: 100vh;
-    // width: 20vw;
+.user-pannel {
+   
+  background-color: #303841;
+
+
+  transition: width $timer2 ease-in-out;
+  width: $user-pannel-width-collapsed; // closed by default
+
+  &.open {
+    width: $user-pannel-width-open;
+  }
+
+  
+}
+
+
+button {
+  padding: 1rem;
 }

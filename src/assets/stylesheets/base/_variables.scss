@@ -23,12 +23,16 @@ $font-size2: 2rem;
 
 // Transition timer 
 $timer1: 250ms;
+$timer2: 400ms;
 
 
 // Editor pannel dimensions
 
-$user-pannel-width-open : 20vw;
-$user-pannel-width-collapsed : 5vw;
+$user-pannel-width-open : 30vw;
+$user-pannel-width-collapsed : 6vw;
 
-$editor-pannel-width-min : calc(100vw - $user-pannel-width-open);
-$editor-pannel-width-max : calc(100vw - $user-pannel-width-collapsed);
+$terminal-pannel-width-open : 20vw;
+$terminal-pannel-width-collapsed : 5vw;
+
+$video-pannel-height-open : 25vh;
+$video-pannel-height-collapsed : 10vh;
