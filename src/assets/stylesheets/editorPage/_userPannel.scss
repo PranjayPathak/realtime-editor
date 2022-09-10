@@ -1,19 +1,186 @@
 .user-pannel {
-   
-  background-color: #303841;
-
-
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: antiquewhite;
+  padding: 0.5rem;
+  border: 2px solid $color-primary-line;
   transition: width $timer2 ease-in-out;
   width: $user-pannel-width-collapsed; // closed by default
 
-  &.open {
-    width: $user-pannel-width-open;
+
+  .usercard_container {
+    display: flex;
+    flex-direction: column;
+
+    .usercard {
+      overflow: hidden;
+      display: flex;
+      position: relative;
+      flex-direction: row;
+      align-items: center;
+      // justify-content: center;
+      // padding: 0;
+      border: 2px solid $color-primary-2;
+      border-radius: 0.5rem;
+      margin-bottom: 1rem;
+
+      &__icon {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 600;
+        color: darken($color: $color-white, $amount: 10);
+        height: 6rem;
+        min-width: 6rem;
+        width: 6rem;
+        text-align: center;
+        border-radius: 0.5rem;
+
+        text-shadow: $color-grey-primary 1px 0 15px;
+        -webkit-box-shadow: inset 0px 0px 99px -54px rgba(0, 0, 0, 0.75);
+        -moz-box-shadow: inset 0px 0px 99px -54px rgba(0, 0, 0, 0.75);
+        box-shadow: inset 0px 0px 99px -54px rgba(0, 0, 0, 0.75);
+      }
+
+      &__name {
+        // display: none;
+        opacity: 0;
+      }
+
+    }
   }
 
-  
-}
+  .control_board {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    &__button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem 1rem;
+      margin: 1rem 0;
+      white-space: nowrap;
+      border-radius: 0.5rem;
+
+      &__icon {
+        max-height: 3rem;
+        height: 100%;
+      }
+
+      &__text {
+        margin: 0 10px;
+        display: none;
+      }
+    }
+
+    .primary {
+      background-color: lighten($color: $color-secondary-3, $amount: 25);
+      border: 5px solid $color-secondary-3;
+
+      &:active {
+        background-color: lighten($color: $color-secondary-3, $amount: 18);
+      }
+    }
+
+    .danger {
+      background-color: lighten($color: $color-accent-5, $amount: 25);
+      border: 5px solid $color-accent-5;
+
+      &:active {
+        background-color: lighten($color: $color-accent-5, $amount: 18);
+      }
+    }
 
 
-button {
-  padding: 1rem;
+  }
+
+
+
+  // When use pannel is open
+  &.open {
+    width: $user-pannel-width-open;
+    padding: 0.5rem;
+
+    .usercard_container {
+      .usercard {
+
+        padding: 0.5rem;
+        border: 2px solid $color-primary-line;
+        border-radius: 0.5rem;
+
+        &__icon {}
+
+        &__name {
+          padding-left: 1rem;
+          display: inline-block;
+          opacity: 1;
+
+          animation-name: fade-in, move-x;
+          animation-timing-function: ease-in-out;
+          animation-duration: $timer2 ;
+        }
+      }
+    }
+
+
+    .control_board {
+
+      &__button {
+        padding: 1.8rem 3rem;
+
+        &__icon {
+          max-height: 2.5rem;
+        }
+
+        &__text {
+
+          animation-name: fade-in;
+          animation-timing-function: ease-in-out;
+          animation-duration: $timer2 ;
+
+          display: inline-block;
+        }
+      }
+    }
+  }
+
+  @keyframes fade-in {
+    0% {
+      opacity: 0.1;
+    }
+
+    30% {
+      opacity: 0.2;
+    }
+
+    60% {
+      opacity: 0.6;
+    }
+
+    100% {
+      opacity: 1;
+    }
+  }
+
+  @keyframes move-x {
+    0% {
+      transform: translateX(-5px);
+    }
+
+    30% {
+      transform: translateX(3px);
+    }
+
+    60% {
+      transform: translateX(1px);
+    }
+
+    100% {
+      transform: translateX(0px);
+    }
+  }
 }

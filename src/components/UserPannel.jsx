@@ -1,14 +1,16 @@
 import React, { useState, useMemo } from 'react'
+import ControlBoard from './ControlBoard'
+import UserCard from './UserCard'
 
 function UserPannel({ isOpen, toggleUserPannel }) {
     const list = [{
-        name: 'ajjj',
+        name: 'shivam',
         socketID: 1
-    },{
-        name: 'babbb',
+    }, {
+        name: 'rahul',
         socketID: 2
-    },{
-        name: 'cbbba',
+    }, {
+        name: 'babayaga',
         socketID: 3
     }]
     const [usersList, setUsersList] = useState(list)
@@ -23,12 +25,19 @@ function UserPannel({ isOpen, toggleUserPannel }) {
 
     return (
         <div onClick={click} className={`user-pannel ${pannelOpen}`}>
-            <div className='usercard'>
-
+            <div className='usercard_container'>
+                {
+                    usersList.map((user) => {
+                        return (
+                            <UserCard key={user.socketID} user={user} />
+                        )
+                    })
+                }
 
             </div>
+            <ControlBoard />
         </div>
     )
 }
 
-export default UserPannel
+export default UserPannel;

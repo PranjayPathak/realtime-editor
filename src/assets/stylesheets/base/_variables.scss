@@ -1,20 +1,7 @@
-$color-yellow: #FFC641;
-$color-yellow-beta: #FFB700;
-$color-blue: #0046CF;
-$color-blue-beta: rgba(0, 108, 255, 1);
-$color-tertiary: #ebf3fd;
-
 $color-white: #fff;
 $color-black: #000;
-$color-red: #FF432A;
-
 $color-grey-primary: #323232;
 $color-grey-secondary: #575757;
-
-// $heading-size1: 4.8rem;
-// $heading-size2: 4.2rem;
-// $heading-size3: 3.6rem;
-// $heading-size4: 2.4rem;
 
 // Font size
 $default-font-size: 2.2rem;
@@ -24,15 +11,41 @@ $font-size2: 2rem;
 // Transition timer 
 $timer1: 250ms;
 $timer2: 400ms;
+$timer3: 600ms;
 
+// Signup page
+$color-yellow: #FFC641;
+$color-yellow-beta: #FFB700;
+$color-blue: #0046CF;
+$color-blue-beta: rgba(0, 108, 255, 1);
+
+
+// Editor page
+$color-primary-1 : #01080E;
+$color-primary-2 : #011627;
+$color-primary-3 : #011221;
+$color-primary-line : #1E2D3D;
+
+$color-secondary-1 : #607B96;
+$color-secondary-2 : #3C9D93;
+$color-secondary-3 : #4D5BCE;
+
+$color-accent-1: #FEA55F;
+$color-accent-2: #43D9AD;
+$color-accent-3: #E99287;
+$color-accent-4: #C98BDF;
+$color-accent-5: #e96554;
+
+$color-gradient-1: #4D5BCE;
+$color-gradient-1: #43D9AD;
 
 // Editor pannel dimensions
 
-$user-pannel-width-open : 30vw;
-$user-pannel-width-collapsed : 6vw;
+$user-pannel-width-open : 25vw;
+$user-pannel-width-collapsed : 8rem; //6vw;//80px; //
 
 $terminal-pannel-width-open : 20vw;
 $terminal-pannel-width-collapsed : 5vw;
 
 $video-pannel-height-open : 25vh;
-$video-pannel-height-collapsed : 10vh;
+$video-pannel-height-collapsed : 0px;//10vh;

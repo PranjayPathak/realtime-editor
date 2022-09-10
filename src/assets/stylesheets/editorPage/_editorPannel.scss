@@ -1,15 +1,18 @@
 .editor-pannel {
-    background-color: aquamarine;
+    // background-color: aquamarine;
+
     width: 100%;
     display: flex;
     flex-direction: column;
 
+    // border: 2px solid $color-primary-line;
     .editor-container {
         height: 100%;
     }
 
     .video-container {
-        background-color: bisque;
+        // background-color: bisque;
+        border: 2px solid $color-primary-line;
         height: $video-pannel-height-collapsed; // closed by default
         transition: height $timer2 ease-in-out;
 
@@ -21,14 +24,15 @@
     .editor-container {
         display: flex;
 
-
         .editor {
             width: 100%;
-            background-color: burlywood;
+            color: burlywood;
+            // border: 2px solid $color-primary-line;
         }
 
         .terminal-container {
-            background-color: cadetblue;
+            // background-color: cadetblue;
+            border: 2px solid $color-primary-line;
             width: $terminal-pannel-width-collapsed; // closed by default
             transition: width $timer2 ease-in-out;
 

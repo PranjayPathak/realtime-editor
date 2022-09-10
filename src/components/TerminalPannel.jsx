@@ -10,8 +10,8 @@ function TerminalPannel({terminalPannelOpen, setTerminalPannel}) {
     }, [terminalPannelOpen])
 
     return (
-        <div className={`terminal-container ${pannelOpen}`}>
-            <button onClick={click}>shiftterm</button>
+        <div onClick={click} className={`terminal-container ${pannelOpen}`}>
+            <h3>Terminal Pannel</h3>
         </div>
     )
 }
