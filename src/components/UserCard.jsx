@@ -19,7 +19,7 @@ function UserCard({ user }) {
     // })
     return (
         <div className='usercard'>
-            <div className='usercard__icon headline-1`' style={{ backgroundColor: bgColor }}>
+            <div className='usercard__icon label-1' style={{ backgroundColor: bgColor }}>
                 {user.name.slice(0, 1).toUpperCase()}
             </div>
 

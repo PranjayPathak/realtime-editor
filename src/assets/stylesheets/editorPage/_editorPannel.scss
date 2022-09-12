@@ -1,44 +1,71 @@
+/////////////////////////////////////
+.cm-theme{
+    height: 100%;
+    // padding: 1.5rem 1rem;
+    // line-height: 2.5rem;
+    // font-size: 1.7rem;
+    // // width: 100% !important;
+}
+
+.cm-lineNumbers{
+    min-width: 3rem;
+}
+/////////////////////////////////////
+
+
 .editor-pannel {
     // background-color: aquamarine;
-
-    width: 100%;
     display: flex;
     flex-direction: column;
+    width: 100%;
+    border: 2px solid $color-primary-line;
 
-    // border: 2px solid $color-primary-line;
-    .editor-container {
-        height: 100%;
-    }
-
-    .video-container {
-        // background-color: bisque;
-        border: 2px solid $color-primary-line;
-        height: $video-pannel-height-collapsed; // closed by default
-        transition: height $timer2 ease-in-out;
-
-        &.open {
-            height: $video-pannel-height-open;
-        }
-    }
 
     .editor-container {
+        position: relative;
         display: flex;
+        height: 100%;
 
-        .editor {
+        .codeEditor {
             width: 100%;
-            color: burlywood;
-            // border: 2px solid $color-primary-line;
+            position: relative;
+            overflow: scroll;
+
+            &__container{
+                position: absolute;
+                right: 0;
+                left: 0;
+                top: 0;
+                bottom: 0;
+                
+                &__codeMirror{
+                    height: 100%;
+                    font-size: 1.6rem;
+
+                }
+            }
         }
 
         .terminal-container {
             // background-color: cadetblue;
-            border: 2px solid $color-primary-line;
+            border-left: 2px solid $color-primary-line;
             width: $terminal-pannel-width-collapsed; // closed by default
             transition: width $timer2 ease-in-out;
 
             &.open {
                 width: $terminal-pannel-width-open;
             }
+        }
+    }
+
+    .video-container {
+        // background-color: bisque;
+        border-top: 2px solid $color-primary-line;
+        height: $video-pannel-height-collapsed; // closed by default
+        transition: height $timer2 ease-in-out;
+
+        &.open {
+            height: $video-pannel-height-open;
         }
     }
 }

@@ -12,7 +12,6 @@ function VideoPannel({videoPannelOpen, setVideoPannel}) {
 
     return (
         <div className={`video-container ${pannelOpen}`} onClick={click}>
-            <h3>video Pannel</h3>
         </div>
     )
 }

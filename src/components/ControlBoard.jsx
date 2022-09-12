@@ -5,7 +5,7 @@ import CheckedIcon from 'assets/icon/checked.svg'
 
 function ControlBoard() {
     return (
-        <div><div className='control_board'>
+        <div className='control_board'>
             <button className='control_board__button primary label-2'>
                 <img className='control_board__button__icon' src={CopyIcon} alt='.' />
                 <span className='control_board__button__text' >Copy Room ID</span>
@@ -14,7 +14,7 @@ function ControlBoard() {
                 <img className='control_board__button__icon' src={EndCallIcon} alt='end call' />
                 <span className='control_board__button__text' > Leave Room</span>
             </button>
-        </div></div>
+        </div>
     )
 }
 

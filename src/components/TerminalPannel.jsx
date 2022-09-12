@@ -11,7 +11,6 @@ function TerminalPannel({terminalPannelOpen, setTerminalPannel}) {
 
     return (
         <div onClick={click} className={`terminal-container ${pannelOpen}`}>
-            <h3>Terminal Pannel</h3>
         </div>
     )
 }

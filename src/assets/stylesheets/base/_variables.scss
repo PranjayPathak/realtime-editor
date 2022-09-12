@@ -5,8 +5,8 @@ $color-grey-secondary: #575757;
 
 // Font size
 $default-font-size: 2.2rem;
-$font-size1: 1.8rem;
-$font-size2: 2rem;
+$font-size-1: 1.6rem;
+$font-size-2: 1.8rem;
 
 // Transition timer 
 $timer1: 250ms;
@@ -42,10 +42,10 @@ $color-gradient-1: #43D9AD;
 // Editor pannel dimensions
 
 $user-pannel-width-open : 25vw;
-$user-pannel-width-collapsed : 8rem; //6vw;//80px; //
+$user-pannel-width-collapsed : 7rem; //6vw;//80px; //
 
 $terminal-pannel-width-open : 20vw;
-$terminal-pannel-width-collapsed : 5vw;
+$terminal-pannel-width-collapsed : 5rem;
 
 $video-pannel-height-open : 25vh;
-$video-pannel-height-collapsed : 0px;//10vh;
+$video-pannel-height-collapsed : 5rem;

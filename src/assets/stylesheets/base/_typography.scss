@@ -11,41 +11,50 @@ body {
 .headline {
   &-1 {
     font-weight: 600;
-    font-size: 4.8rem;
+    font-size: 4.6rem;
   }
 
   &-2 {
     font-weight: 600;
-    font-size: 4.2rem;
+    font-size: 4.0rem;
   }
 
   &-3 {
     font-weight: 500;
-    font-size: 2.2rem;
+    font-size: 2.0rem;
   }
 }
 
 .label {
   &-1 {
     font-weight: 600;
-    font-size: 2.2rem;
+    font-size: 2.0rem;
   }
 
   &-2 {
     font-weight: 600;
-    font-size: 2.0rem;
+    font-size: 1.7rem;
   }
 
   &-3 {
     font-weight: 400;
-    font-size: 2.0rem;
+    font-size: 1.8rem;
   }
 }
 
-.paragraph {
-  font-weight: 400;
-  font-size: $font-size2; // $default-font-size;
-  color: $color-grey-primary;
+.para {
+
+  &-1 {
+    font-weight: 400;
+    font-size: $font-size-1; 
+    // color: $color-grey-primary;
+  }
+
+  &-2 {
+    font-weight: 400;
+    font-size: $font-size-2; ;
+    // color: $color-grey-primary;
+  }
   // &:not(:last-child) {
   // margin-bottom: 3rem;
   // }
