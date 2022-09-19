@@ -1,4 +1,5 @@
-import React, { useMemo } from 'react'
+import React, { useMemo } from 'react';
+// import Dropdown from './dropdown';
 
 function TerminalPannel({terminalPannelOpen, setTerminalPannel}) {
     const click = () => {
@@ -11,6 +12,7 @@ function TerminalPannel({terminalPannelOpen, setTerminalPannel}) {
 
     return (
         <div onClick={click} className={`terminal-container ${pannelOpen}`}>
+            {/* <Dropdown /> */}
         </div>
     )
 }

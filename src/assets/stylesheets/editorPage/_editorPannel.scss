@@ -1,15 +1,23 @@
 /////////////////////////////////////
-.cm-theme{
-    height: 100%;
-    // padding: 1.5rem 1rem;
-    // line-height: 2.5rem;
-    // font-size: 1.7rem;
-    // // width: 100% !important;
-}
+/// 
+.CodeMirror{
+    height: 100% !important;
+    font-size: 1.6rem;
+    padding-top: 1rem;
 
-.cm-lineNumbers{
-    min-width: 3rem;
+    line-height: 2.8rem;
 }
+// .cm-theme{
+//     height: 100%;
+//     // padding: 1.5rem 1rem;
+//     // line-height: 2.5rem;
+//     // font-size: 1.7rem;
+//     // // width: 100% !important;
+// }
+
+// .cm-lineNumbers{
+//     min-width: 3rem;
+// }
 /////////////////////////////////////
 
 
@@ -18,7 +26,7 @@
     display: flex;
     flex-direction: column;
     width: 100%;
-    border: 2px solid $color-primary-line;
+    border: 1px solid $color-primary-line;
 
 
     .editor-container {
@@ -38,17 +46,17 @@
                 top: 0;
                 bottom: 0;
                 
-                &__codeMirror{
-                    height: 100%;
-                    font-size: 1.6rem;
+                // &__codeMirror{
+                //     height: 100%;
+                //     font-size: 1.6rem;
 
-                }
+                // }
             }
         }
 
         .terminal-container {
             // background-color: cadetblue;
-            border-left: 2px solid $color-primary-line;
+            border-left: 1px solid $color-primary-line;
             width: $terminal-pannel-width-collapsed; // closed by default
             transition: width $timer2 ease-in-out;
 
@@ -60,7 +68,7 @@
 
     .video-container {
         // background-color: bisque;
-        border-top: 2px solid $color-primary-line;
+        border-top: 1px solid $color-primary-line;
         height: $video-pannel-height-collapsed; // closed by default
         transition: height $timer2 ease-in-out;
 

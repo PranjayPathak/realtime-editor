@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { useNavigate } from 'react-router-dom';
 import Toast from 'react-hot-toast';
@@ -10,14 +10,14 @@ const HomepageForm = () => {
     const [sessionId, setSessionId] = useState('');
     const [userName, setUserName] = useState('');
 
-    const createNewSession = () => {
+    const createNewSession = useCallback(() => {
         // console.log("creating new room");
         const uuid = uuidv4();
         // console.log(uuid);
         setSessionId(uuid);
         Toast.dismiss();
         Toast.success("New session created")
-    }
+    }, [])
 
     const joinSession = (e) => {
         e.preventDefault();

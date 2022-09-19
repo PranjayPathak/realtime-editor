@@ -12,13 +12,21 @@
   .usercard_container {
     display: flex;
     flex-direction: column;
+    overflow-x: scroll;
 
+    // &__heading{
+    //   display: none;
+    //   margin: 2rem 0;
+    //   text-align: center;
+    //   color: $color-secondary-1;
+    // }
     .usercard {
       overflow: hidden;
       display: flex;
       position: relative;
       flex-direction: row;
       align-items: center;
+      min-height: 6rem;
       // justify-content: center;
       // padding: 0;
 
@@ -51,6 +59,7 @@
 
       &__name {
         // display: none;
+        color: $color-secondary-1;
         opacity: 0;
       }
 
@@ -63,13 +72,16 @@
     justify-content: space-between;
 
     &__button {
+      cursor: pointer;
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 1.3rem 1rem;
+      padding: 1.3rem 0.2rem;
       margin: 1rem 0;
       white-space: nowrap;
       border-radius: 0.5rem;
+
+      transition: padding $timer2 ease-in-out;
 
       &__icon {
         max-height: 2.5rem;
@@ -77,26 +89,37 @@
       }
 
       &__text {
-        margin: 0 10px;
+        margin: 0 0 0 10px;
         display: none;
+        animation-name: fade-in;
+        animation-timing-function: ease-in-out;
+        animation-duration: $timer2 ;
       }
     }
 
     .primary {
-      background-color: lighten($color: $color-secondary-3, $amount: 25);
+      background-color: lighten($color: $color-secondary-3, $amount: 5);
       border: 3px solid $color-secondary-3;
 
       &:active {
-        background-color: lighten($color: $color-secondary-3, $amount: 18);
+        background-color: lighten($color: $color-secondary-3, $amount: 17);
+      }
+
+      &:hover {
+        background-color: lighten($color: $color-secondary-3, $amount: 8);
       }
     }
 
     .danger {
-      background-color: lighten($color: $color-accent-5, $amount: 25);
+      background-color: lighten($color: $color-accent-5, $amount: 5);
       border: 3px solid $color-accent-5;
 
       &:active {
-        background-color: lighten($color: $color-accent-5, $amount: 18);
+        background-color: lighten($color: $color-accent-5, $amount: 17);
+      }
+
+      &:hover {
+        background-color: lighten($color: $color-accent-5, $amount: 8);
       }
     }
 
@@ -111,10 +134,14 @@
     padding: 0.5rem;
 
     .usercard_container {
-      .usercard {
 
+      // &__heading{
+      //   display: inline-block;
+      // }
+      .usercard {
         padding: 0.5rem;
         border: 1px solid $color-primary-line;
+        background-color:  darken($color: $color-primary-line, $amount: 12);
         // border-radius: 0.5rem;
 
         &__icon {}
@@ -135,18 +162,13 @@
     .control_board {
 
       &__button {
-        padding: 1.7rem 3rem;
+        padding: 1.8rem 0.2rem;
 
         &__icon {
           max-height: 2.5rem;
         }
 
         &__text {
-
-          animation-name: fade-in;
-          animation-timing-function: ease-in-out;
-          animation-duration: $timer2 ;
-
           display: inline-block;
         }
       }
