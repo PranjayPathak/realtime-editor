@@ -1,4 +1,5 @@
-// const ASSETS_URL = '/assets';
+import { languageOptions } from "./languageOptions";
+const themeOptions = [];
 
-// const constants = { ASSETS_URL }
-// export default constants ;
+const constants = { languageOptions, themeOptions }
+export default constants ;

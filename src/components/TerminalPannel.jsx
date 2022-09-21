@@ -1,9 +1,13 @@
 import React, { useMemo } from 'react';
-// import Dropdown from './dropdown';
+import monacoThemes from "monaco-themes/themes/themelist";
+import Dropdown from './Dropdown';
+import ThemeDropdown from './themeDropdown';
 
-function TerminalPannel({terminalPannelOpen, setTerminalPannel}) {
+// const themeArray = ['dracula', 'material', 'material-darker', 'mdn-like', 'the-matrix', 'night', 'material', 'material-darker', 'mdn-like', 'the-matrix', 'night', 'material', 'material-darker', 'mdn-like', 'the-matrix', 'night', 'material', 'material-darker', 'mdn-like', 'the-matrix', 'night']
+
+function TerminalPannel({ terminalPannelOpen, setTerminalPannel, editorTheme, handleThemeChange }) {
     const click = () => {
-        setTerminalPannel(!terminalPannelOpen);
+        // setTerminalPannel(!terminalPannelOpen);
     }
 
     const pannelOpen = useMemo(() => {
@@ -12,7 +16,16 @@ function TerminalPannel({terminalPannelOpen, setTerminalPannel}) {
 
     return (
         <div onClick={click} className={`terminal-container ${pannelOpen}`}>
-            {/* <Dropdown /> */}
+            {/* <ThemeDropdown handleThemeChange={handleThemeChange} theme={editorTheme} /> */}
+            <Dropdown
+                // listItems={themeArray}
+                placeholderText={'Select Theme'}
+                listItems={Object.entries(monacoThemes).map(([themeId, themeName]) => ({
+                    label: themeName,
+                    value: themeId,
+                    key: themeId,
+                }))}
+                onSelectItem={handleThemeChange} />
         </div>
     )
 }

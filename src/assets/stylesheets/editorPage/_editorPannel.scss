@@ -1,11 +1,15 @@
 /////////////////////////////////////
 /// 
+/// 
+.monaco-editor{
+    padding-top: 2rem;
+}
 .CodeMirror{
-    height: 100% !important;
-    font-size: 1.6rem;
-    padding-top: 1rem;
+    // height: 100% !important;
+    // font-size: 1.6rem;
+    // padding-top: 1rem;
 
-    line-height: 2.8rem;
+    // line-height: 2.8rem;
 }
 // .cm-theme{
 //     height: 100%;
@@ -46,11 +50,12 @@
                 top: 0;
                 bottom: 0;
                 
-                // &__codeMirror{
-                //     height: 100%;
-                //     font-size: 1.6rem;
+                &__codeMirror{
+                    // padding-top: 2rem;
+                    // height: 100%;
+                    // font-size: 1.6rem;
 
-                // }
+                }
             }
         }
 

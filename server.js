@@ -48,6 +48,7 @@ io.on('connection', (socket) => {
     })
 
     socket.on(ACTIONS.CODE_CHANGE, ({ sessionId, code }) => {
+        // socket.in(sessionId).emit(ACTIONS.CODE_CHANGE, { code })
         console.log("changing code : ", code);
         socket.in(sessionId).emit(ACTIONS.CODE_CHANGE, { code });
     })

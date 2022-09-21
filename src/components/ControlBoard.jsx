@@ -40,7 +40,7 @@ function ControlBoard() {
             <button onClick={copyId} className='control_board__button primary label-2'>
 
                 <img className='control_board__button__icon' src={icon} alt='.' />
-                <span className='control_board__button__text' >Copy Session ID</span>
+                <span className='control_board__button__text' >Session ID</span>
             </button>
             <button onClick={leaveRoom} className='control_board__button danger label-2'>
                 <img className='control_board__button__icon' src={EndCallIcon} alt='end call' />

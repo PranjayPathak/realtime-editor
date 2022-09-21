@@ -9,11 +9,11 @@ function ToasterComponent() {
                 style: {
                     fontFamily: "'Montserrat', 'Roboto', 'Oxygen', 'Ubuntu', 'sans-serif'",
                     // background: 'white',
-                    // border: '2px solid rgba(0, 108, 255, 1)',
+                    border: '2px solid #333',
                     fontSize: '1.6rem',
                     fontWeight: '600',
                     // borderRadius: '3px',
-                    // boxShadow: '0px 1px 5px blue, inset 0px 0px 2px 0px #000',
+                    boxShadow: 'inset 0px 0px 2px 0px #000',
 
                     borderRadius: '10px',
                     background: '#333',

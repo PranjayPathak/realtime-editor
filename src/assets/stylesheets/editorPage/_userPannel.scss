@@ -2,9 +2,10 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  color: antiquewhite;
+  color: $font-color;
   padding: 0.5rem;
-  // border-right: 2px solid $color-primary-line;
+  border: 1px solid $color-primary-line;
+  border-right: none;
   transition: width $timer2 ease-in-out;
   width: $user-pannel-width-collapsed; // closed by default
 
@@ -27,16 +28,12 @@
       flex-direction: row;
       align-items: center;
       min-height: 6rem;
-      // justify-content: center;
-      // padding: 0;
 
-      // border: 2px solid $color-primary-2;
-      // border-radius: 0.5rem;
       margin-bottom: 1rem;
-
+      background-color: $color-primary-3;
       padding: 0.5rem 0.2rem;
       border: 1px solid $color-primary-2;
-      border-radius: 0.5rem;
+      border-radius: 2px;//0.5rem;
 
       &__icon {
         position: relative;
@@ -49,7 +46,7 @@
         min-width: 5rem;
         width: 5rem;
         text-align: center;
-        border-radius: 0.5rem;
+        border-radius: 2px;//0.5rem;
 
         text-shadow: $color-grey-primary 1px 0 15px;
         -webkit-box-shadow: inset 0px 0px 99px -54px rgba(0, 0, 0, 0.75);
@@ -59,7 +56,7 @@
 
       &__name {
         // display: none;
-        color: $color-secondary-1;
+        color: $font-color; // $color-secondary-1;
         opacity: 0;
       }
 
@@ -79,7 +76,7 @@
       padding: 1.3rem 0.2rem;
       margin: 1rem 0;
       white-space: nowrap;
-      border-radius: 0.5rem;
+      border-radius: 5px;//0.5rem;
 
       transition: padding $timer2 ease-in-out;
 
@@ -99,7 +96,7 @@
 
     .primary {
       background-color: lighten($color: $color-secondary-3, $amount: 5);
-      border: 3px solid $color-secondary-3;
+      border: 2px solid $color-secondary-3;
 
       &:active {
         background-color: lighten($color: $color-secondary-3, $amount: 17);
@@ -112,7 +109,7 @@
 
     .danger {
       background-color: lighten($color: $color-accent-5, $amount: 5);
-      border: 3px solid $color-accent-5;
+      border: 2px solid $color-accent-5;
 
       &:active {
         background-color: lighten($color: $color-accent-5, $amount: 17);
@@ -141,10 +138,9 @@
       .usercard {
         padding: 0.5rem;
         border: 1px solid $color-primary-line;
-        background-color:  darken($color: $color-primary-line, $amount: 12);
         // border-radius: 0.5rem;
 
-        &__icon {}
+        // &__icon {}
 
         &__name {
           padding-left: 1rem;

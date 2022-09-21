@@ -1,3 +1,13 @@
+:root {
+    --background-color: #000;
+    --editor-line: #000;
+    --editor-font-color: red;
+    --background-color-light-1: #000;
+    --background-color-light-2: #000;
+    // $background-color-dark-1: #000;
+    // $background-color-dark-2: #000;
+}
+
 $color-white: #fff;
 $color-black: #000;
 $color-grey-primary: #323232;
@@ -21,10 +31,12 @@ $color-blue-beta: rgba(0, 108, 255, 1);
 
 
 // Editor page
-$color-primary-1 : #01080E;
-$color-primary-2 : #171717;// #011627;
-$color-primary-3 : #011221;
-$color-primary-line : #323232;// #1E2D3D;
+$font-color: var(--editor-font-color);
+
+$color-primary-1 : var(--background-color-light);
+$color-primary-2 : var(--background-color-light-1); // #171717; // #011627;
+$color-primary-3 : var(--background-color-light-2); //#01080E;
+$color-primary-line : var(--editor-line); // #323232; // #1E2D3D;
 
 $color-secondary-1 : #607B96;
 $color-secondary-2 : #3C9D93;
@@ -44,7 +56,7 @@ $color-gradient-1: #43D9AD;
 $user-pannel-width-open : 25vw;
 $user-pannel-width-collapsed : 7rem; //6vw;//80px; //
 
-$terminal-pannel-width-open : 20vw;
+$terminal-pannel-width-open : 25vw;
 $terminal-pannel-width-collapsed : 5rem;
 
 $video-pannel-height-open : 25vh;

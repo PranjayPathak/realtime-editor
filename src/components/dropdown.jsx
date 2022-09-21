@@ -1,34 +1,39 @@
 const { useState } = require("react");
 
-const theme = ['dracula', 'material', 'material-darker', 'mdn-like', 'the-matrix', 'night'];
+// const listItems = ['dracula', 'material', 'material-darker', 'mdn-like', 'the-matrix', 'night'];
 
 
-const Dropdown = () => {
+const Dropdown = ({ listItems, onSelectItem, placeholderText }) => {
     const [isOpen, setIsOpen] = useState(false)
-    const [haveText, setHaveText] = useState("")
+    const [text, setText] = useState("")
 
     const handleClick = () => {
-        setIsOpen(!isOpen)
+        setIsOpen(!isOpen);
     }
 
-    const handleText = (ev) => {
-        setHaveText(ev.currentTarget.textContent)
-    }
+    // const handleSelect = (item) => {
+    //     onSelect(item.value);
+    //     setText(item.label);
+    // }
 
     return (
         <div
             className={isOpen ? "dropdown active" : "dropdown"}
             onClick={handleClick} >
             <div className="dropdown__text">
-                {!haveText ? "Select Theme" : haveText}
+                {!text ? placeholderText : text}
             </div>
             <div className="dropdown__items">
-                {theme.map((item) => (
+                {listItems.map((item) => (
                     <div
-                        onClick={handleText}
+                        onClick={() => {
+                            onSelectItem(item);
+                            setText(item.label);
+                        }}
                         className="dropdown__item"
-                        key={item.toString()}>
-                        {item}
+                        key={item.key}
+                    >
+                        {item.label}
                     </div>
                 ))
                 } </div>
@@ -36,5 +41,4 @@ const Dropdown = () => {
     )
 }
 
-
-export default Dropdown
+export default Dropdown;
