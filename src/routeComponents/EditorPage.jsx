@@ -30,9 +30,10 @@ const EditorPage = () => {
   const [videoPannelOpen, setVideoPannel] = useState(false);
   const [terminalPannelOpen, setTerminalPannel] = useState(true);
 
-  const [editorCode, setEditorCode] = useState("defaultext")
+  const [editorCode, setEditorCode] = useState("")
   const [editorTheme, setEditorTheme] = useState("cobalt")
   const [usersList, setUsersList] = useState([]);
+  const [editorLanguage, setEditorLanguage] = useState('javascript');
 
   function handleThemeChange(th) {
     const theme = th;
@@ -130,7 +131,7 @@ const EditorPage = () => {
   }
 
   return (
-    <div className='editor_page' 
+    <div className='editor_page'
     // style={{backgroundColor: `${backgroundColor}`}}
     >
       <ToasterComponent />
@@ -146,6 +147,8 @@ const EditorPage = () => {
         editorTheme={editorTheme}
         handleThemeChange={handleThemeChange}
         editorCode={editorCode}
+        editorLanguage={editorLanguage}
+        setEditorLanguage={setEditorLanguage}
         updateEditorCode={updateEditorCode}
       />
     </div>

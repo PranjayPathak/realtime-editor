@@ -1,10 +1,12 @@
 import React, { useCallback, useMemo, useState } from 'react'
 import Toast from 'react-hot-toast';
 import EndCallIcon from 'assets/icon/end-call.svg'
-import CopyIcon from 'assets/icon/copy.svg'
-import CheckedIcon from 'assets/icon/checked.svg'
+import CopyIcon from 'assets/icon/copy.png'
+import CheckedIcon from 'assets/icon/checked.png'
 
 import { useNavigate, useParams } from 'react-router-dom';
+import ExitButton from './ExitButton';
+import CopyButton from './CopyButton';
 
 function ControlBoard() {
 
@@ -37,15 +39,17 @@ function ControlBoard() {
     })
     return (
         <div className='control_board'>
-            <button onClick={copyId} className='control_board__button primary label-2'>
-
+            {/* <button onClick={copyId} className='control_board__button primary label-2'>
                 <img className='control_board__button__icon' src={icon} alt='.' />
                 <span className='control_board__button__text' >Session ID</span>
-            </button>
-            <button onClick={leaveRoom} className='control_board__button danger label-2'>
+            </button> */}
+
+            {/* <button onClick={leaveRoom} className='control_board__button danger label-2'>
                 <img className='control_board__button__icon' src={EndCallIcon} alt='end call' />
                 <span className='control_board__button__text' >Leave Room</span>
-            </button>
+            </button> */}
+            <CopyButton clicked={copyId} icon={icon} />
+            <ExitButton clicked={leaveRoom} />
         </div>
     )
 }

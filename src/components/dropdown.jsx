@@ -21,17 +21,22 @@ const Dropdown = ({ listItems, onSelectItem, placeholderText }) => {
             className={isOpen ? "dropdown active" : "dropdown"}
             onClick={handleClick} >
             <div className="dropdown__text">
-                {!text ? placeholderText : text}
+                <span>{!text ? placeholderText : text}</span>
             </div>
             <div className="dropdown__items">
                 {listItems.map((item) => (
                     <div
                         onClick={() => {
                             onSelectItem(item);
-                            setText(item.label);
+                            if (item.label.length > 15) {
+                                setText(`${item.label.slice(0, 15)}...`);
+                            } else {
+                                setText(item.label);
+                            }
+
                         }}
                         className="dropdown__item"
-                        key={item.key}
+                        key={item.id}
                     >
                         {item.label}
                     </div>

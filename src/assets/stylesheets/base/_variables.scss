@@ -1,9 +1,9 @@
 :root {
-    --background-color: #000;
-    --editor-line: #000;
-    --editor-font-color: red;
-    --background-color-light-1: #000;
-    --background-color-light-2: #000;
+    --background-color: #1B2B34; //#000;
+    --editor-line: #65737e55; //#000;
+    --editor-font-color: #CDD3DE;
+    --background-color-light-1: #1B2B34; // #000;
+    --background-color-light-2: #1B2B34; //#000;
     // $background-color-dark-1: #000;
     // $background-color-dark-2: #000;
 }
@@ -53,10 +53,10 @@ $color-gradient-1: #43D9AD;
 
 // Editor pannel dimensions
 
-$user-pannel-width-open : 25vw;
+$user-pannel-width-open : 20vw;
 $user-pannel-width-collapsed : 7rem; //6vw;//80px; //
 
-$terminal-pannel-width-open : 25vw;
+$terminal-pannel-width-open : 20vw;
 $terminal-pannel-width-collapsed : 5rem;
 
 $video-pannel-height-open : 25vh;

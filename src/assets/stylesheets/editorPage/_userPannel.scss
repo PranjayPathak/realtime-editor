@@ -81,12 +81,12 @@
       transition: padding $timer2 ease-in-out;
 
       &__icon {
-        max-height: 2.5rem;
+        max-height: 2.8rem;
         height: 100%;
       }
 
       &__text {
-        margin: 0 0 0 10px;
+        margin: 0 0 0 5px;
         display: none;
         animation-name: fade-in;
         animation-timing-function: ease-in-out;
@@ -95,7 +95,7 @@
     }
 
     .primary {
-      background-color: lighten($color: $color-secondary-3, $amount: 5);
+      background-color: lighten($color: $color-secondary-3, $amount: 4);
       border: 2px solid $color-secondary-3;
 
       &:active {
@@ -103,12 +103,12 @@
       }
 
       &:hover {
-        background-color: lighten($color: $color-secondary-3, $amount: 8);
+        background-color: lighten($color: $color-secondary-3, $amount: 6);
       }
     }
 
     .danger {
-      background-color: lighten($color: $color-accent-5, $amount: 5);
+      background-color: lighten($color: $color-accent-5, $amount: 0);
       border: 2px solid $color-accent-5;
 
       &:active {
@@ -116,7 +116,7 @@
       }
 
       &:hover {
-        background-color: lighten($color: $color-accent-5, $amount: 8);
+        background-color: lighten($color: $color-accent-5, $amount: 6);
       }
     }
 

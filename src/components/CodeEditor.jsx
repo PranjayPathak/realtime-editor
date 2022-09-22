@@ -3,7 +3,7 @@ import React, { useCallback, useState } from "react";
 
 import Editor from "@monaco-editor/react";
 
-const CodeEditor = ({ language, editorTheme, editorCode, updateEditorCode }) => {
+const CodeEditor = ({ editorTheme, editorCode, updateEditorCode, editorLanguage }) => {
     // const [value, setValue] = useState(code || "");
 
     const handleEditorChange = useCallback((value) => {
@@ -21,10 +21,10 @@ const CodeEditor = ({ language, editorTheme, editorCode, updateEditorCode }) => 
                         className="codeEditor__container__codeMirror"
                         height="100%"
                         width="100%"
-                        language={language || "javascript"}
+                        language={editorLanguage || "javascript"}
                         value={editorCode}
                         theme={editorTheme}
-                        defaultValue="// some comment"
+                        defaultValue="// Hello World!"
                         onChange={handleEditorChange}
                     />
                 </div>
