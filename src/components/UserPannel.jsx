@@ -2,7 +2,9 @@ import React, { useState, useMemo } from 'react'
 import ControlBoard from './ControlBoard'
 import UserCard from './UserCard'
 
-function UserPannel({ usersList, isOpen, toggleUserPannel }) {
+function UserPannel({ usersList, isOpen, toggleUserPannel, handleCompile, processing }) {
+
+    console.log("usersList: ", usersList);
 
     const click = () => {
         // toggleUserPannel(!isOpen)
@@ -28,7 +30,7 @@ function UserPannel({ usersList, isOpen, toggleUserPannel }) {
                     }
 
                 </div>
-                <ControlBoard />
+                <ControlBoard processing={processing} handleCompile={handleCompile} />
             </div>
         </>
     )

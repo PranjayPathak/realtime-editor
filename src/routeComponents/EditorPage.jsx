@@ -10,6 +10,7 @@ import { io } from 'socket.io-client';
 import ACTIONS from 'Actions';
 import { useLocation, useParams, useNavigate } from 'react-router-dom';
 import { defineTheme } from 'utils/defineTheme';
+import axios from 'axios';
 // import ThemeDropdown from 'components/themeDropdown';
 
 const options = {
@@ -27,13 +28,93 @@ const EditorPage = () => {
   const reactNavigator = useNavigate();
   const { sessionId } = useParams();
   const [userPannelOpen, setUserPannel] = useState(true);
-  const [videoPannelOpen, setVideoPannel] = useState(false);
+  const [videoPannelOpen, setVideoPannel] = useState(true);
   const [terminalPannelOpen, setTerminalPannel] = useState(true);
 
-  const [editorCode, setEditorCode] = useState("")
+  const [editorCode, setEditorCode] = useState("console.log('hello there....')")
   const [editorTheme, setEditorTheme] = useState("cobalt")
   const [usersList, setUsersList] = useState([]);
-  const [editorLanguage, setEditorLanguage] = useState('javascript');
+  const [editorLanguage, setEditorLanguage] = useState({
+    id: 63,
+    name: "JavaScript (Node.js 12.14.0)",
+    label: "JavaScript (Node.js 12.14.0)",
+    value: "javascript",
+  });
+  const [processing, setProcessing] = useState(null);
+  const [customInput, setCustomInput] = useState("")
+  const [outputDetails, setOutputDetails] = useState(null);
+
+
+  const handleCompile = () => {
+    setProcessing(true);
+    const formData = {
+      language_id: editorLanguage.id,
+      // encode source code in base64
+      source_code: btoa(editorCode),
+      // stdin: btoa(customInput),
+    };
+    const options = {
+      method: "POST",
+      url: process.env.REACT_APP_RAPID_API_URL,
+      params: { base64_encoded: "true", fields: "*" },
+      headers: {
+        "content-type": "application/json",
+        "Content-Type": "application/json",
+        "X-RapidAPI-Host": process.env.REACT_APP_RAPID_API_HOST,
+        "X-RapidAPI-Key": process.env.REACT_APP_RAPID_API_KEY,
+      },
+      data: formData,
+    };
+
+    axios
+      .request(options)
+      .then(function (response) {
+        console.log("res.data", response.data);
+        const token = response.data.token;
+        checkStatus(token);
+      })
+      .catch((err) => {
+        let error = err.response ? err.response.data : err;
+        setProcessing(false);
+        console.log(error);
+      });
+  };
+
+  const checkStatus = async (token) => {
+    const options = {
+      method: "GET",
+      url: process.env.REACT_APP_RAPID_API_URL + "/" + token,
+      params: { base64_encoded: "true", fields: "*" },
+      headers: {
+        "X-RapidAPI-Host": process.env.REACT_APP_RAPID_API_HOST,
+        "X-RapidAPI-Key": process.env.REACT_APP_RAPID_API_KEY,
+      },
+    };
+    try {
+      let response = await axios.request(options);
+      let statusId = response.data.status?.id;
+
+      // Processed - we have a result
+      if (statusId === 1 || statusId === 2) {
+        // still processing
+        setTimeout(() => {
+          checkStatus(token)
+        }, 2000)
+        return
+      } else {
+        setProcessing(false)
+        setOutputDetails(response.data)
+        // showSuccessToast(`Compiled Successfully!`)
+        console.log('response.data', response.data)
+        return
+      }
+    } catch (err) {
+      console.log("err", err);
+      setProcessing(false);
+      // showErrorToast();
+    }
+  };
+
 
   function handleThemeChange(th) {
     const theme = th;
@@ -90,10 +171,12 @@ const EditorPage = () => {
       socket.off(ACTIONS.JOINED)
       socket.off(ACTIONS.DISCONNECTED)
       socket.off(ACTIONS.CODE_CHANGE)
+      socket.off(ACTIONS.SYNC_CODE)
     }
   }, [sessionId, location.state?.userName, reactNavigator]);
 
   useEffect(() => {
+
     //Listening for joined event
     socket.on(ACTIONS.JOINED, ({ clients, userName, socketId }) => {
       if (userName !== location.state?.userName) {
@@ -126,6 +209,8 @@ const EditorPage = () => {
       });
     })
   }, [location.state?.userName, editorCode])
+
+  // console.log("!location.state: ", !location.state, location.state?.userName);
   if (!location.state) {
     return <Navigate to="/" />;
   }
@@ -138,7 +223,10 @@ const EditorPage = () => {
       <UserPannel
         usersList={usersList}
         isOpen={userPannelOpen}
-        toggleUserPannel={setUserPannel} />
+        toggleUserPannel={setUserPannel} 
+        handleCompile={handleCompile}
+        processing={processing}
+/>
       <EditorPannel
         videoPannelOpen={videoPannelOpen}
         setVideoPannel={setVideoPannel}
@@ -150,6 +238,12 @@ const EditorPage = () => {
         editorLanguage={editorLanguage}
         setEditorLanguage={setEditorLanguage}
         updateEditorCode={updateEditorCode}
+        processing={processing}
+        outputDetails={outputDetails}
+
+
+        customInput={customInput}
+        setCustomInput={setCustomInput}
       />
     </div>
   )

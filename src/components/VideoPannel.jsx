@@ -1,9 +1,10 @@
 import React, { useMemo } from 'react'
+import OutputPannel from './OutputPannel';
 
-function VideoPannel({videoPannelOpen, setVideoPannel}) {
+function VideoPannel({ outputDetails, videoPannelOpen, setVideoPannel }) {
 
     const click = () => {
-        setVideoPannel(!videoPannelOpen);
+        // setVideoPannel(!videoPannelOpen);
     }
 
     const pannelOpen = useMemo(() => {
@@ -12,6 +13,7 @@ function VideoPannel({videoPannelOpen, setVideoPannel}) {
 
     return (
         <div className={`video-container ${pannelOpen}`} onClick={click}>
+            <OutputPannel outputDetails={outputDetails} style={{ color: 'white !important' }} />
         </div>
     )
 }

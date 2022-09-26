@@ -76,6 +76,7 @@
         border-top: 1px solid $color-primary-line;
         height: $video-pannel-height-collapsed; // closed by default
         transition: height $timer2 ease-in-out;
+        color: $font-color;
 
         &.open {
             height: $video-pannel-height-open;

@@ -3,12 +3,13 @@ import Toast from 'react-hot-toast';
 import EndCallIcon from 'assets/icon/end-call.svg'
 import CopyIcon from 'assets/icon/copy.png'
 import CheckedIcon from 'assets/icon/checked.png'
+import CompileIcon from 'assets/icon/compile.png'
 
 import { useNavigate, useParams } from 'react-router-dom';
 import ExitButton from './ExitButton';
-import CopyButton from './CopyButton';
+import GeneralButton from './GeneralButton';
 
-function ControlBoard() {
+function ControlBoard({ handleCompile, processing }) {
 
     const Navigate = useNavigate();
     const [clicked, setClicked] = useState(false)
@@ -48,7 +49,9 @@ function ControlBoard() {
                 <img className='control_board__button__icon' src={EndCallIcon} alt='end call' />
                 <span className='control_board__button__text' >Leave Room</span>
             </button> */}
-            <CopyButton clicked={copyId} icon={icon} />
+
+            <GeneralButton isDisabled={processing} clicked={handleCompile} icon={CompileIcon} text={'Compile'} />
+            <GeneralButton clicked={copyId} icon={icon} text={'Session ID'} />
             <ExitButton clicked={leaveRoom} />
         </div>
     )
