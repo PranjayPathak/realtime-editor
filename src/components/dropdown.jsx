@@ -1,7 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react'
 
-
-const Dropdown = ({ listItems, onSelectItem, placeholderText }) => {
+function Dropdown({ listItems, onSelectItem, placeholderText }) {
     const [isOpen, setIsOpen] = useState(false)
     const [text, setText] = useState("")
     const ref = useRef(null);

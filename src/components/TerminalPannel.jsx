@@ -1,9 +1,9 @@
 import React, { useMemo } from 'react';
 import monacoThemes from "monaco-themes/themes/themelist";
 import { languageOptions } from 'constants/languageOptions';
-import Dropdown from './Dropdown';
 import CustomInput from './CustomInput';
 import OutputDetails from './OutputDetails';
+import Dropdown from './Dropdown';
 
 function TerminalPannel({ terminalPannelOpen, setTerminalPannel, editorTheme, handleThemeChange, editorLanguage, setEditorLanguage, customInput, setCustomInput, outputDetails }) {
     const click = () => {
