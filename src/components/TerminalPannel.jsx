@@ -3,7 +3,7 @@ import monacoThemes from "monaco-themes/themes/themelist";
 import { languageOptions } from 'constants/languageOptions';
 import CustomInput from './CustomInput';
 import OutputDetails from './OutputDetails';
-// import Dropdown from './Dropdown';
+import EditorDropdown from './EditorDropdown';
 
 function TerminalPannel({ terminalPannelOpen, setTerminalPannel, editorTheme, handleThemeChange, editorLanguage, setEditorLanguage, customInput, setCustomInput, outputDetails }) {
     const click = () => {
@@ -17,14 +17,14 @@ function TerminalPannel({ terminalPannelOpen, setTerminalPannel, editorTheme, ha
     return (
         <div onClick={click} className={`terminal-container ${pannelOpen}`}>
             <div className='dropdown-container'>
-                {/* <Dropdown
+                <EditorDropdown
                     placeholderText={'Javascript'}
                     listItems={languageOptions}
                     onSelectItem={(item) => {
                         setEditorLanguage(item)
                     }}
                 />
-                <Dropdown
+                <EditorDropdown
                     placeholderText={'Select Theme'}
                     listItems={Object.entries(monacoThemes).map(([themeId, themeName]) => ({
                         label: themeName,
@@ -32,7 +32,7 @@ function TerminalPannel({ terminalPannelOpen, setTerminalPannel, editorTheme, ha
                         id: themeId,
                     }))}
                     onSelectItem={handleThemeChange}
-                /> */}
+                />
             </div>
             <div className='custom-input-container para-2'>
 

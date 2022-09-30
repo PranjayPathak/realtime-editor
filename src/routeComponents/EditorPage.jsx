@@ -28,7 +28,7 @@ const EditorPage = () => {
   const reactNavigator = useNavigate();
   const { sessionId } = useParams();
   const [userPannelOpen, setUserPannel] = useState(true);
-  const [videoPannelOpen, setVideoPannel] = useState(true);
+  const [videoPannelOpen, setVideoPannel] = useState(false);
   const [terminalPannelOpen, setTerminalPannel] = useState(true);
 
   const [editorCode, setEditorCode] = useState("console.log('hello there....')")

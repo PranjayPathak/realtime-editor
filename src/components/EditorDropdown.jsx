@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react'
 
-function Dropdown({ listItems, onSelectItem, placeholderText }) {
+function EditorDropdown({ listItems, onSelectItem, placeholderText }) {
     const [isOpen, setIsOpen] = useState(false)
     const [text, setText] = useState("")
     const ref = useRef(null);
@@ -57,4 +57,4 @@ function Dropdown({ listItems, onSelectItem, placeholderText }) {
     )
 }
 
-export default Dropdown;
+export default EditorDropdown;
