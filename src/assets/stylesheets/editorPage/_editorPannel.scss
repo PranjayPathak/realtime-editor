@@ -4,13 +4,13 @@
 .monaco-editor{
     padding-top: 2rem;
 }
-.CodeMirror{
+// .CodeMirror{
     // height: 100% !important;
     // font-size: 1.6rem;
     // padding-top: 1rem;
 
     // line-height: 2.8rem;
-}
+// }
 // .cm-theme{
 //     height: 100%;
 //     // padding: 1.5rem 1rem;
@@ -57,29 +57,6 @@
 
                 }
             }
-        }
-
-        .terminal-container {
-            // background-color: cadetblue;
-            border-left: 1px solid $color-primary-line;
-            width: $terminal-pannel-width-collapsed; // closed by default
-            transition: width $timer2 ease-in-out;
-
-            &.open {
-                width: $terminal-pannel-width-open;
-            }
-        }
-    }
-
-    .video-container {
-        // background-color: bisque;
-        border-top: 1px solid $color-primary-line;
-        height: $video-pannel-height-collapsed; // closed by default
-        transition: height $timer2 ease-in-out;
-        color: $font-color;
-
-        &.open {
-            height: $video-pannel-height-open;
         }
     }
 }

@@ -2,22 +2,24 @@ import React from "react";
 
 const OutputDetails = ({ outputDetails }) => {
   return (
-    <div className="label-3">
-      <p className="">
-        Status:{" "}
-        <span className="">
+    <div className="output-details para-1">
+      <p className="output-details__data">
+        <span className="output-details__label">
+          Status:
+        </span><span className="output-details__value">
           {outputDetails?.status?.description}
         </span>
       </p>
-      <p className="">
-        Memory:{" "}
-        <span className="">
+      <p className="output-details__data">
+        <span className="output-details__label">
+          Memory:
+        </span><span className="output-details__value">
           {outputDetails?.memory}
         </span>
       </p>
-      <p className="">
-        Time:{" "}
-        <span className="">
+      <p className="output-details__data">
+        <span className="output-details__label" >Time:</span>
+        <span className="output-details__value">
           {outputDetails?.time}
         </span>
       </p>

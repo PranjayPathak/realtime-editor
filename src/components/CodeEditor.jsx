@@ -26,7 +26,7 @@ const CodeEditor = ({ editorTheme, editorCode, updateEditorCode, editorLanguage 
         "cursorStyle": "line",
         "disableLayerHinting": false,
         "disableMonospaceOptimizations": false,
-        "dragAndDrop": false,
+        "dragAndDrop": true,
         "fixedOverflowWidgets": false,
         "folding": true,
         "foldingStrategy": "auto",
@@ -89,7 +89,8 @@ const CodeEditor = ({ editorTheme, editorCode, updateEditorCode, editorLanguage 
 
                     />
                 </div>
-            </div></>
+            </div>
+            </>
     );
 };
 export default CodeEditor;

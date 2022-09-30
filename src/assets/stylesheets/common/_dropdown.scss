@@ -7,7 +7,7 @@
     border: 0.5px solid $color-primary-line;// #666;
     border-bottom: 2.5px solid $color-primary-line;// #666;;
     border-top: none;
-    background: $color-primary-1; // #475154;
+    background: $color-primary-2; // #475154;
     font-size: 1.5rem;
 
 }
@@ -52,7 +52,7 @@
     visibility: hidden;
     opacity: 0;
     max-height: 0px;
-    transition: max-height 0.6s ease;
+    transition: max-height 0.7s ease;
 }
 
 
@@ -61,7 +61,7 @@
 
     border-top: 1px solid $color-primary-line;//#666;
     height: auto;
-    max-height: 290px;
+    max-height: 20rem;
     opacity: 1;
     transition: max-height 0.7s, opacity 2s ease-out, visibility 4s ease;
 }

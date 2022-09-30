@@ -1,13 +1,15 @@
 import React, { useState, useMemo } from 'react'
+import Logo from 'assets/image/logo-beta-5.png'
 import ControlBoard from './ControlBoard'
 import UserCard from './UserCard'
+import Arrow from "./Arrow";
 
 function UserPannel({ usersList, isOpen, toggleUserPannel, handleCompile, processing }) {
 
     console.log("usersList: ", usersList);
 
     const click = () => {
-        // toggleUserPannel(!isOpen)
+        toggleUserPannel(!isOpen)
     }
 
     let pannelOpen = useMemo(() => {
@@ -17,19 +19,25 @@ function UserPannel({ usersList, isOpen, toggleUserPannel, handleCompile, proces
     if (usersList.length === 0) return;
     return (
         <>
-            <div onClick={click} className={`user-pannel ${pannelOpen}`}>
+            <div  className={`user-pannel ${pannelOpen}`}>
+                <div>
+                    <div className='logo-container'>
+                        <img className='logo-container__logo' src={Logo} alt='LOGO' />
+                    </div>
+                    <hr className='hr-rule'/>
 
-                <div className='usercard_container'>
-                    {/* <h3 className="usercard_container__heading headline-3 ">CONNECTED</h3> */}
-                    {
-                        usersList.map((user) => {
-                            return (
-                                <UserCard key={user.socketId} user={user} />
-                            )
-                        })
-                    }
+                    <div className='usercard_container'>
+                        {
+                            usersList.map((user) => {
+                                return (
+                                    <UserCard key={user.socketId} user={user} />
+                                )
+                            })
+                        }
 
+                    </div>
                 </div>
+                <Arrow onClick={click}  position='position-right' direction={isOpen ? 'left' : 'right'}/>
                 <ControlBoard processing={processing} handleCompile={handleCompile} />
             </div>
         </>

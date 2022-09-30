@@ -6,7 +6,7 @@
     float: left;
     width: 40vw;
     height: 100vh;
-    padding: 17rem 6rem;
+    padding: 19rem 6rem; //17rem 6rem;
 
     @include respond(tab-port) {
         width: 60vw;
@@ -63,7 +63,7 @@
 
         &__label {
             position: absolute;
-            top: 1.9rem;
+            top: 2rem;// 1.9rem;
             left: 2.2rem;
             padding: 0;
             opacity: 0.9;
@@ -99,6 +99,7 @@
                 color: $color-white;
                 background: #017BFE;
                 box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.3), inset 0px 0px 5px 0px darken($color: #017BFE, $amount: 25%);
+
                 &:active {
                     transform: scale(0.98);
                     background: darken($color: #017BFE, $amount: 1%);

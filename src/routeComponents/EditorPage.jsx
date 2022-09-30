@@ -51,7 +51,7 @@ const EditorPage = () => {
       language_id: editorLanguage.id,
       // encode source code in base64
       source_code: btoa(editorCode),
-      // stdin: btoa(customInput),
+      stdin: btoa(customInput),
     };
     const options = {
       method: "POST",
@@ -102,16 +102,23 @@ const EditorPage = () => {
         }, 2000)
         return
       } else {
+
+        if(!videoPannelOpen) setVideoPannel(true);
         setProcessing(false)
         setOutputDetails(response.data)
-        // showSuccessToast(`Compiled Successfully!`)
+        Toast.dismiss();
+        Toast.success(`Compiled Successfully!`)
         console.log('response.data', response.data)
         return
       }
     } catch (err) {
+      if(!videoPannelOpen) setVideoPannel(true);
       console.log("err", err);
       setProcessing(false);
       // showErrorToast();
+
+      Toast.dismiss();
+      Toast.error('Something went wrong, please try again later.');
     }
   };
 

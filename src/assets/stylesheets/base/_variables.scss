@@ -15,8 +15,8 @@ $color-grey-secondary: #575757;
 
 // Font size
 $default-font-size: 2.2rem;
-$font-size-1: 1.6rem;
-$font-size-2: 1.8rem;
+$font-size-1: 1.4rem;
+$font-size-2: 1.6rem;
 
 // Transition timer 
 $timer1: 250ms;
@@ -32,8 +32,10 @@ $color-blue-beta: rgba(0, 108, 255, 1);
 
 // Editor page
 $font-color: var(--editor-font-color);
+$font-color-info: #b1a827;
+$font-color-error: #e04b4b;
 
-$color-primary-1 : var(--background-color-light);
+$color-primary-1 : var(--background-color);
 $color-primary-2 : var(--background-color-light-1); // #171717; // #011627;
 $color-primary-3 : var(--background-color-light-2); //#01080E;
 $color-primary-line : var(--editor-line); // #323232; // #1E2D3D;
@@ -54,10 +56,10 @@ $color-gradient-1: #43D9AD;
 // Editor pannel dimensions
 
 $user-pannel-width-open : 20vw;
-$user-pannel-width-collapsed : 7rem; //6vw;//80px; //
+$user-pannel-width-collapsed : 6.5rem; //6vw;//80px; //
 
-$terminal-pannel-width-open : 20vw;
+$terminal-pannel-width-open : 27rem; //17vw;
 $terminal-pannel-width-collapsed : 5rem;
 
-$video-pannel-height-open : 25vh;
-$video-pannel-height-collapsed : 5rem;
+$video-pannel-height-open : 23vh;
+$video-pannel-height-collapsed : 4.1rem;

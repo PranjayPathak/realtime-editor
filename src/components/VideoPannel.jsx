@@ -1,10 +1,11 @@
 import React, { useMemo } from 'react'
+import Arrow from './Arrow';
 import OutputPannel from './OutputPannel';
 
 function VideoPannel({ outputDetails, videoPannelOpen, setVideoPannel }) {
 
     const click = () => {
-        // setVideoPannel(!videoPannelOpen);
+        setVideoPannel(!videoPannelOpen);
     }
 
     const pannelOpen = useMemo(() => {
@@ -12,8 +13,11 @@ function VideoPannel({ outputDetails, videoPannelOpen, setVideoPannel }) {
     }, [videoPannelOpen])
 
     return (
-        <div className={`video-container ${pannelOpen}`} onClick={click}>
-            <OutputPannel outputDetails={outputDetails} style={{ color: 'white !important' }} />
+        <div className={`output-wrapper ${pannelOpen}`}>
+            <div className={`video-container ${pannelOpen}`}>
+                <OutputPannel outputDetails={outputDetails} />
+            </div>
+            <Arrow onClick={click} position='position-top' direction={videoPannelOpen ? 'bottom' : 'top'} />
         </div>
     )
 }

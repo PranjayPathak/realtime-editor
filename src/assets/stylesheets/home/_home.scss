@@ -1,4 +1,19 @@
 .homepage_container {
+
+    &__logo {
+        position: absolute;
+        height: 6.6rem;
+        // background: #016AFF;
+        background: #017BFD;//#0052DF;
+        box-shadow:0px 2px 4px rgb(0 0 0 / 30%), inset 0px 0px 5px 0px #007bff;
+        /* opacity: 0.8; */
+        margin: 5rem 6rem;
+        padding: 1rem;
+        z-index: 7;
+        border-radius: 4px;
+        border: 2px solid #007bff;// #fff;
+    }
+
     &__hero-image {
         height: 100vh;
         float: left;
@@ -13,5 +28,6 @@
         @include respond(phone) {
             display: none;
         }
+
     }
 }

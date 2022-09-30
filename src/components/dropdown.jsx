@@ -1,11 +1,10 @@
-const { useState } = require("react");
-
-// const listItems = ['dracula', 'material', 'material-darker', 'mdn-like', 'the-matrix', 'night'];
+import React, { useState, useRef, useEffect } from 'react'
 
 
 const Dropdown = ({ listItems, onSelectItem, placeholderText }) => {
     const [isOpen, setIsOpen] = useState(false)
     const [text, setText] = useState("")
+    const ref = useRef(null);
 
     const handleClick = () => {
         setIsOpen(!isOpen);
@@ -16,16 +15,31 @@ const Dropdown = ({ listItems, onSelectItem, placeholderText }) => {
     //     setText(item.label);
     // }
 
+    useEffect(() => {
+        const handleClickOutside = (event) => {
+            if (ref.current && !ref.current.contains(event.target)) {
+                setIsOpen(false);
+                // onClickOutside && onClickOutside();
+            }
+        };
+        document.addEventListener('click', handleClickOutside, true);
+        return () => {
+            document.removeEventListener('click', handleClickOutside, true);
+        };
+    }, []);
+
     return (
-        <div
+        <div ref={ref}
             className={isOpen ? "dropdown active" : "dropdown"}
             onClick={handleClick} >
-            <div className="dropdown__text">
+            <div className="dropdown__text para-1">
                 <span>{!text ? placeholderText : text}</span>
             </div>
-            <div className="dropdown__items">
+            <div className="dropdown__items para-1">
                 {listItems.map((item) => (
                     <div
+                        className="dropdown__item"
+                        key={item.id}
                         onClick={() => {
                             onSelectItem(item);
                             if (item.label.length > 15) {
@@ -35,8 +49,6 @@ const Dropdown = ({ listItems, onSelectItem, placeholderText }) => {
                             }
 
                         }}
-                        className="dropdown__item"
-                        key={item.id}
                     >
                         {item.label}
                     </div>

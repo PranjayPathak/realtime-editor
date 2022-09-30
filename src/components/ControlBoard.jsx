@@ -1,6 +1,5 @@
 import React, { useCallback, useMemo, useState } from 'react'
 import Toast from 'react-hot-toast';
-import EndCallIcon from 'assets/icon/end-call.svg'
 import CopyIcon from 'assets/icon/copy.png'
 import CheckedIcon from 'assets/icon/checked.png'
 import CompileIcon from 'assets/icon/compile.png'

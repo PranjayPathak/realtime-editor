@@ -2,11 +2,8 @@ import React, { useMemo } from 'react';
 import monacoThemes from "monaco-themes/themes/themelist";
 import { languageOptions } from 'constants/languageOptions';
 import Dropdown from './Dropdown';
-// import ThemeDropdown from './themeDropdown';
 import CustomInput from './CustomInput';
 import OutputDetails from './OutputDetails';
-
-// const themeArray = ['dracula', 'material', 'material-darker', 'mdn-like', 'the-matrix', 'night', 'material', 'material-darker', 'mdn-like', 'the-matrix', 'night', 'material', 'material-darker', 'mdn-like', 'the-matrix', 'night', 'material', 'material-darker', 'mdn-like', 'the-matrix', 'night']
 
 function TerminalPannel({ terminalPannelOpen, setTerminalPannel, editorTheme, handleThemeChange, editorLanguage, setEditorLanguage, customInput, setCustomInput, outputDetails }) {
     const click = () => {
@@ -19,11 +16,8 @@ function TerminalPannel({ terminalPannelOpen, setTerminalPannel, editorTheme, ha
 
     return (
         <div onClick={click} className={`terminal-container ${pannelOpen}`}>
-            {/* <ThemeDropdown handleThemeChange={handleThemeChange} theme={editorTheme} /> */}
-            <div>
+            <div className='dropdown-container'>
                 <Dropdown
-                    key={1}
-                    // listItems={themeArray}
                     placeholderText={'Javascript'}
                     listItems={languageOptions}
                     onSelectItem={(item) => {
@@ -31,8 +25,6 @@ function TerminalPannel({ terminalPannelOpen, setTerminalPannel, editorTheme, ha
                     }}
                 />
                 <Dropdown
-                    key={2}
-                    // listItems={themeArray}
                     placeholderText={'Select Theme'}
                     listItems={Object.entries(monacoThemes).map(([themeId, themeName]) => ({
                         label: themeName,
@@ -42,12 +34,13 @@ function TerminalPannel({ terminalPannelOpen, setTerminalPannel, editorTheme, ha
                     onSelectItem={handleThemeChange}
                 />
             </div>
-            <div>
+            <div className='custom-input-container para-2'>
+
+                <OutputDetails outputDetails={outputDetails} />
                 <CustomInput
-                    customInput={customInput} 
+                    customInput={customInput}
                     setCustomInput={setCustomInput}
                 />
-                <OutputDetails outputDetails={outputDetails}/>
             </div>
         </div>
     )

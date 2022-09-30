@@ -8,13 +8,13 @@ const OutputPannel = ({ outputDetails }) => {
     if (statusId === 6) {
       // compilation error
       return (
-        <pre className="">
+        <pre className="error">
           {atob(outputDetails?.compile_output)}
         </pre>
       );
     } else if (statusId === 3) {
       return (
-        <pre className="">
+        <pre className="success">
           {atob(outputDetails.stdout) !== null
             ? `${atob(outputDetails.stdout)}`
             : null}
@@ -22,27 +22,25 @@ const OutputPannel = ({ outputDetails }) => {
       );
     } else if (statusId === 5) {
       return (
-        <pre className="">
+        <pre className="info">
           {`Time Limit Exceeded`}
         </pre>
       );
     } else {
       return (
-        <pre className="">
+        <pre className="error">
           {atob(outputDetails?.stderr)}
         </pre>
       );
     }
   };
   return (
-    <>
-      <h3 className="">
-        Output
-      </h3>
-      <div className="">
+    <div className="output-terminal para-1">
+      <p className="output-placeholder">Output Terminal</p>
+      <div>
         {outputDetails ? <>{getOutput()}</> : null}
       </div>
-    </>
+    </div>
   );
 };
 
