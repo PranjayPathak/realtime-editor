@@ -38,4 +38,4 @@ function UserCard({ user }) {
     )
 }
 
-export default UserCard
+export default React.memo(UserCard);

@@ -1,4 +1,4 @@
-import React, { useMemo } from 'react';
+import React, { useCallback, useMemo } from 'react';
 import monacoThemes from "monaco-themes/themes/themelist";
 import { languageOptions } from 'constants/languageOptions';
 import CustomInput from './CustomInput';
@@ -14,23 +14,27 @@ function TerminalPannel({ terminalPannelOpen, setTerminalPannel, editorTheme, ha
         return terminalPannelOpen ? 'open' : 'closed';
     }, [terminalPannelOpen])
 
+    const themeItems = useMemo(() => {
+        return Object.entries(monacoThemes).map(([themeId, themeName]) => ({
+            label: themeName,
+            value: themeId,
+            id: themeId,
+        }))
+    }, [])
+
     return (
         <div onClick={click} className={`terminal-container ${pannelOpen}`}>
             <div className='dropdown-container'>
                 <EditorDropdown
                     placeholderText={'Javascript'}
                     listItems={languageOptions}
-                    onSelectItem={(item) => {
+                    onSelectItem={useCallback((item) => {
                         setEditorLanguage(item)
-                    }}
+                    }, [setEditorLanguage])}
                 />
                 <EditorDropdown
                     placeholderText={'Select Theme'}
-                    listItems={Object.entries(monacoThemes).map(([themeId, themeName]) => ({
-                        label: themeName,
-                        value: themeId,
-                        id: themeId,
-                    }))}
+                    listItems={themeItems}
                     onSelectItem={handleThemeChange}
                 />
             </div>

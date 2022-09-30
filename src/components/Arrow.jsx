@@ -9,4 +9,4 @@ const Arrow = ({ position, direction, onClick }) => {
     )
 }
 
-export default Arrow
+export default React.memo(Arrow)

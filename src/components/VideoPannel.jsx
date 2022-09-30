@@ -1,12 +1,12 @@
-import React, { useMemo } from 'react'
+import React, { useCallback, useMemo } from 'react'
 import Arrow from './Arrow';
 import OutputPannel from './OutputPannel';
 
 function VideoPannel({ outputDetails, videoPannelOpen, setVideoPannel }) {
 
-    const click = () => {
+    const click = useCallback(() => {
         setVideoPannel(!videoPannelOpen);
-    }
+    }, [setVideoPannel, videoPannelOpen])
 
     const pannelOpen = useMemo(() => {
         return videoPannelOpen ? 'open' : 'closed';
@@ -22,4 +22,4 @@ function VideoPannel({ outputDetails, videoPannelOpen, setVideoPannel }) {
     )
 }
 
-export default VideoPannel
+export default React.memo(VideoPannel)

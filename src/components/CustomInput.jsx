@@ -17,4 +17,4 @@ const CustomInput = ({ customInput, setCustomInput }) => {
     );
 };
 
-export default CustomInput;
+export default React.memo(CustomInput);

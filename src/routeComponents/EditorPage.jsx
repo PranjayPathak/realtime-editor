@@ -45,42 +45,7 @@ const EditorPage = () => {
   const [outputDetails, setOutputDetails] = useState(null);
 
 
-  const handleCompile = () => {
-    setProcessing(true);
-    const formData = {
-      language_id: editorLanguage.id,
-      // encode source code in base64
-      source_code: btoa(editorCode),
-      stdin: btoa(customInput),
-    };
-    const options = {
-      method: "POST",
-      url: process.env.REACT_APP_RAPID_API_URL,
-      params: { base64_encoded: "true", fields: "*" },
-      headers: {
-        "content-type": "application/json",
-        "Content-Type": "application/json",
-        "X-RapidAPI-Host": process.env.REACT_APP_RAPID_API_HOST,
-        "X-RapidAPI-Key": process.env.REACT_APP_RAPID_API_KEY,
-      },
-      data: formData,
-    };
-
-    axios
-      .request(options)
-      .then(function (response) {
-        console.log("res.data", response.data);
-        const token = response.data.token;
-        checkStatus(token);
-      })
-      .catch((err) => {
-        let error = err.response ? err.response.data : err;
-        setProcessing(false);
-        console.log(error);
-      });
-  };
-
-  const checkStatus = async (token) => {
+  const checkStatus = useCallback(async (token) => {
     const options = {
       method: "GET",
       url: process.env.REACT_APP_RAPID_API_URL + "/" + token,
@@ -120,10 +85,46 @@ const EditorPage = () => {
       Toast.dismiss();
       Toast.error('Something went wrong, please try again later.');
     }
-  };
+  }, [videoPannelOpen]);
 
 
-  function handleThemeChange(th) {
+  const handleCompile = useCallback(() => {
+    setProcessing(true);
+    const formData = {
+      language_id: editorLanguage.id,
+      // encode source code in base64
+      source_code: btoa(editorCode),
+      stdin: btoa(customInput),
+    };
+    const options = {
+      method: "POST",
+      url: process.env.REACT_APP_RAPID_API_URL,
+      params: { base64_encoded: "true", fields: "*" },
+      headers: {
+        "content-type": "application/json",
+        "Content-Type": "application/json",
+        "X-RapidAPI-Host": process.env.REACT_APP_RAPID_API_HOST,
+        "X-RapidAPI-Key": process.env.REACT_APP_RAPID_API_KEY,
+      },
+      data: formData,
+    };
+
+    axios
+      .request(options)
+      .then(function (response) {
+        console.log("res.data", response.data);
+        const token = response.data.token;
+        checkStatus(token);
+      })
+      .catch((err) => {
+        let error = err.response ? err.response.data : err;
+        setProcessing(false);
+        console.log(error);
+      });
+  }, [checkStatus, customInput, editorCode, editorLanguage]);
+
+
+  const handleThemeChange = useCallback((th) => {
     const theme = th;
     console.log("theme...", theme);
 
@@ -133,16 +134,16 @@ const EditorPage = () => {
     } else {
       defineTheme(theme.value).then((_) => setEditorTheme(theme));
     }
-  }
+  }, [])
 
-  const updateEditorCode = (code) => {
+  const updateEditorCode = useCallback((code) => {
     console.log("update code: ", code);
     setEditorCode(code);
     socket.emit(ACTIONS.CODE_CHANGE, {
       sessionId,
       code,
     });
-  }
+  }, [setEditorCode, sessionId])
 
   useEffect(() => {
     defineTheme("oceanic-next").then((_) =>

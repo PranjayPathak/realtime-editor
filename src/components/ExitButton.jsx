@@ -16,4 +16,4 @@ function ExitButton({ clicked }) {
     )
 }
 
-export default ExitButton
+export default React.memo(ExitButton);

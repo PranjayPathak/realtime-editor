@@ -57,4 +57,4 @@ function EditorDropdown({ listItems, onSelectItem, placeholderText }) {
     )
 }
 
-export default EditorDropdown;
+export default React.memo(EditorDropdown);

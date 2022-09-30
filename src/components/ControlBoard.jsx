@@ -34,9 +34,12 @@ function ControlBoard({ handleCompile, processing }) {
         }
     }, [clicked, sessionId])
 
-    const leaveRoom = () => {
-        Navigate('/');
-    }
+    const leaveRoom = useCallback(
+        () => {
+            Navigate('/');
+        }
+        , [Navigate])
+
     return (
         <div className='control_board'>
             <GeneralButton isDisabled={processing} clicked={handleCompile} icon={CompileIcon} text={'Compile'} />
@@ -46,4 +49,4 @@ function ControlBoard({ handleCompile, processing }) {
     )
 }
 
-export default ControlBoard
+export default React.memo(ControlBoard);

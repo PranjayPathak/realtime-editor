@@ -27,4 +27,4 @@ const OutputDetails = ({ outputDetails }) => {
   );
 };
 
-export default OutputDetails;
+export default React.memo(OutputDetails);

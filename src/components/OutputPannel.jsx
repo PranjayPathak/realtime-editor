@@ -44,4 +44,4 @@ const OutputPannel = ({ outputDetails }) => {
   );
 };
 
-export default OutputPannel;
+export default React.memo(OutputPannel);

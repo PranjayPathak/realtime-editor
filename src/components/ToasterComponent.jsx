@@ -46,4 +46,4 @@ function ToasterComponent() {
     )
 }
 
-export default ToasterComponent
+export default React.memo(ToasterComponent);
