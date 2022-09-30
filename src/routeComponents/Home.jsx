@@ -1,5 +1,5 @@
 import React from 'react';
-import hero_img from 'assets/image/hero_img.svg';
+import hero_img from 'assets/image/hero_img.jpg';
 // import Logo from 'assets/image/logo-beta.png'
 
 import Logo from 'assets/image/logo-white.png'

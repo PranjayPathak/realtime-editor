@@ -1,7 +1,7 @@
-
 const ACTIONS = require('./src/Actions');
 const express = require('express')
 const http = require('http')
+const path = require('path');
 const { Server } = require('socket.io')
 
 const app = express();
@@ -9,6 +9,11 @@ const httpServer = http.createServer(app);
 
 const io = new Server(httpServer);
 const PORT = process.env.PORT || 4000;
+
+app.use(express.static('build'));
+app.use((_, res, next) => {
+    res.sendFile(path.join(__dirname, 'build', 'index.html'));
+});
 
 const userSocketMap = {};
 
@@ -30,7 +35,7 @@ io.on('connection', (socket) => {
     // console.log("socket room: ", socket.rooms);
 
     socket.on(ACTIONS.JOIN, ({ sessionId, userName }) => {
-        console.log("Action join");
+        // console.log("Action join");
         userSocketMap[socket.id] = userName;
         // console.log("userSocketMap: ", userSocketMap);
 
@@ -49,7 +54,7 @@ io.on('connection', (socket) => {
 
     socket.on(ACTIONS.CODE_CHANGE, ({ sessionId, code }) => {
         // socket.in(sessionId).emit(ACTIONS.CODE_CHANGE, { code })
-        console.log("changing code : ", code);
+        // console.log("changing code : ", code);
         socket.in(sessionId).emit(ACTIONS.CODE_CHANGE, { code });
     })
 
@@ -57,12 +62,12 @@ io.on('connection', (socket) => {
         socket.in(sessionId).emit(ACTIONS.CODE_CHANGE, { code })
 
         // io.to(sessionId).emit(ACTIONS.CODE_CHANGE, { code });
-        console.log("syncing code",sessionId, code);
-        console.log("---------");
+        // console.log("syncing code",sessionId, code);
+        // console.log("---------");
     })
 
     socket.on('disconnecting', () => {
-        console.log("disconnected");
+        // console.log("disconnected");
         const rooms = [...socket.rooms];
         rooms.forEach((roomId) => {
             socket.in(roomId).emit(ACTIONS.DISCONNECTED, { // emit from server to client

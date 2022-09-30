@@ -2,7 +2,7 @@ import React, { useCallback, useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import { useNavigate } from 'react-router-dom';
 import Toast from 'react-hot-toast';
-import Logo from 'assets/image/logo-white.png'
+// import Logo from 'assets/image/logo-white.png'
 import ToasterComponent from 'components/ToasterComponent';
 
 

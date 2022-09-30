@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useRef, useEffect, Navigate, useCallback } from 'react'
+import React, { useState, useMemo, useRef, useEffect, useCallback } from 'react'
 import UserPannel from 'components/UserPannel'
 // import Split from 'split.js'
 import EditorPannel from 'components/EditorPannel'
@@ -103,7 +103,7 @@ const EditorPage = () => {
         return
       } else {
 
-        if(!videoPannelOpen) setVideoPannel(true);
+        if (!videoPannelOpen) setVideoPannel(true);
         setProcessing(false)
         setOutputDetails(response.data)
         Toast.dismiss();
@@ -112,7 +112,7 @@ const EditorPage = () => {
         return
       }
     } catch (err) {
-      if(!videoPannelOpen) setVideoPannel(true);
+      if (!videoPannelOpen) setVideoPannel(true);
       console.log("err", err);
       setProcessing(false);
       // showErrorToast();
@@ -219,7 +219,8 @@ const EditorPage = () => {
 
   // console.log("!location.state: ", !location.state, location.state?.userName);
   if (!location.state) {
-    return <Navigate to="/" />;
+    reactNavigator('/');
+    // return <Redirect to="/" />;
   }
 
   return (
@@ -230,10 +231,10 @@ const EditorPage = () => {
       <UserPannel
         usersList={usersList}
         isOpen={userPannelOpen}
-        toggleUserPannel={setUserPannel} 
+        toggleUserPannel={setUserPannel}
         handleCompile={handleCompile}
         processing={processing}
-/>
+      />
       <EditorPannel
         videoPannelOpen={videoPannelOpen}
         setVideoPannel={setVideoPannel}

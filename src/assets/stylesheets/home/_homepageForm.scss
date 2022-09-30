@@ -6,7 +6,7 @@
     float: left;
     width: 40vw;
     height: 100vh;
-    padding: 19rem 6rem; //17rem 6rem;
+    padding: 18rem 6rem; //17rem 6rem;
 
     @include respond(tab-port) {
         width: 60vw;

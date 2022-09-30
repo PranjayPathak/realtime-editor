@@ -34,21 +34,11 @@ function ControlBoard({ handleCompile, processing }) {
         }
     }, [clicked, sessionId])
 
-    const leaveRoom = useCallback(() => {
-        Navigate('/')
-    })
+    const leaveRoom = () => {
+        Navigate('/');
+    }
     return (
         <div className='control_board'>
-            {/* <button onClick={copyId} className='control_board__button primary label-2'>
-                <img className='control_board__button__icon' src={icon} alt='.' />
-                <span className='control_board__button__text' >Session ID</span>
-            </button> */}
-
-            {/* <button onClick={leaveRoom} className='control_board__button danger label-2'>
-                <img className='control_board__button__icon' src={EndCallIcon} alt='end call' />
-                <span className='control_board__button__text' >Leave Room</span>
-            </button> */}
-
             <GeneralButton isDisabled={processing} clicked={handleCompile} icon={CompileIcon} text={'Compile'} />
             <GeneralButton clicked={copyId} icon={icon} text={'Session ID'} />
             <ExitButton clicked={leaveRoom} />
