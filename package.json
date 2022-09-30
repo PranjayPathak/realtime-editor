@@ -1,6 +1,9 @@
 {
   "name": "realtime-editor",
   "version": "0.1.0",
+  "engines": {
+    "node": "16.x"
+  },
   "private": true,
   "dependencies": {
     "@codemirror/lang-javascript": "^6.0.2",
@@ -29,7 +32,8 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start",
+    "start:dev": "react-scripts start",
+    "start": "npm run build && npm run server:prod",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
