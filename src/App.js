@@ -4,13 +4,13 @@ import {
   Routes,
   Route,
 } from "react-router-dom";
-import React, { Suspense } from 'react';
+import React, { Suspense , lazy} from 'react';
 import Home from "./routeComponents/Home";
 import Loading from 'components/Loading';
 import PageNotFound from 'components/404';
 // import EditorPage from './routeComponents/EditorPage';
 
-const EditorPage = React.lazy(() => import('./routeComponents/EditorPage'));
+const EditorPage = lazy(() => import('./routeComponents/EditorPage'));
 
 function App() {
   return (
