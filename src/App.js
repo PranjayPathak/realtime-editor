@@ -7,6 +7,7 @@ import {
 import React, { Suspense } from 'react';
 import Home from "./routeComponents/Home";
 import Loading from 'components/Loading';
+import PageNotFound from 'components/404';
 // import EditorPage from './routeComponents/EditorPage';
 
 const EditorPage = React.lazy(() => import('./routeComponents/EditorPage'));
@@ -24,6 +25,7 @@ function App() {
             </Suspense>
 
           } />
+          <Route path="*" element={<PageNotFound />} />
         </Routes>
       </BrowserRouter>
     </>
