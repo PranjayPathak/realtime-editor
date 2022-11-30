@@ -18,29 +18,27 @@ function UserPannel({ usersList, isOpen, toggleUserPannel, handleCompile, proces
 
     if (usersList.length === 0) return;
     return (
-        <>
-            <div className={`user-pannel ${pannelOpen}`}>
-                <div>
-                    <div className='logo-container'>
-                        <img className='logo-container__logo' src={Logo} alt='LOGO' />
-                    </div>
-                    <hr className='hr-rule' />
-
-                    <div className='usercard_container'>
-                        {
-                            usersList.map((user) => {
-                                return (
-                                    <UserCard key={user.socketId} user={user} />
-                                )
-                            })
-                        }
-
-                    </div>
+        <div className={`user-pannel ${pannelOpen}`}>
+            <div>
+                <div className='logo-container'>
+                    <img className='logo-container__logo' src={Logo} alt='LOGO' />
                 </div>
-                <Arrow onClick={click} position='position-right' direction={isOpen ? 'left' : 'right'} />
-                <ControlBoard processing={processing} handleCompile={handleCompile} />
+                <hr className='hr-rule' />
+
+                <div className='usercard_container'>
+                    {
+                        usersList.map((user) => {
+                            return (
+                                <UserCard key={user.socketId} user={user} />
+                            )
+                        })
+                    }
+
+                </div>
             </div>
-        </>
+            <Arrow onClick={click} position='position-right' direction={isOpen ? 'left' : 'right'} />
+            <ControlBoard processing={processing} handleCompile={handleCompile} />
+        </div>
     )
 }
 

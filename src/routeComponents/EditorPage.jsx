@@ -19,6 +19,7 @@ const options = {
   timeout: 10000,
   transports: ['websocket'],
 };
+
 const socket = io.connect(process.env.REACT_APP_BACKEND_URL, options);
 
 const EditorPage = () => {
@@ -31,7 +32,7 @@ const EditorPage = () => {
   const [videoPannelOpen, setVideoPannel] = useState(false);
   const [terminalPannelOpen, setTerminalPannel] = useState(true);
 
-  const [editorCode, setEditorCode] = useState("console.log('hello there....')")
+  const [editorCode, setEditorCode] = useState("console.log('hello world')")
   const [editorTheme, setEditorTheme] = useState("cobalt")
   const [usersList, setUsersList] = useState([]);
   const [editorLanguage, setEditorLanguage] = useState({
@@ -126,10 +127,9 @@ const EditorPage = () => {
 
   const handleThemeChange = useCallback((th) => {
     const theme = th;
-    console.log("theme...", theme);
+    console.log("theme: ", theme);
 
-    if (["light", "vs-dark"].includes(theme.value)) {
-      console.log("here");
+    if (["light", "vs-dark"].includes(theme.value)) { 
       setEditorTheme(theme);
     } else {
       defineTheme(theme.value).then((_) => setEditorTheme(theme));

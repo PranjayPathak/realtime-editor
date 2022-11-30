@@ -1,5 +1,5 @@
 .homepage_container {
-
+    display: flex;
     &__logo {
         position: absolute;
         height: 6.6rem;
@@ -17,7 +17,7 @@
     &__hero-image {
         height: 100vh;
         float: left;
-        width: 60vw;
+        width: 60%;
         object-fit: cover; // To crop image to fill the aspect ratio
         object-position: 0 100%; // To crop image from right on responsive screen
 
