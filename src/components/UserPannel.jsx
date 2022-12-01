@@ -1,4 +1,4 @@
-import React, { useState, useMemo, useCallback } from 'react'
+import React, { useMemo, useCallback } from 'react'
 import Logo from 'assets/image/logo-beta-5.png'
 import ControlBoard from './ControlBoard'
 import UserCard from './UserCard'
