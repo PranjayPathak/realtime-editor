@@ -1,7 +1,7 @@
 <h1 align="center">Codeiva - Realtime Code Editor 👨🏼‍💻</h1>
 
 Created Codeiva - an online IDE with real-time collaboration and integrated JudgeO API for compilation. Used Sockets to connect all editors in the room and stream every code change in real-time. Having IntelliSense support for 40+ languages and 50+ themes.
-### 🌐  Live at >>> [https://codeiva.up.railway.app/](https://codeiva.up.railway.app/)
+### 🌐  Live at: [https://codeiva.up.railway.app](https://codeiva.up.railway.app/)
 
 ## Made with
 ![Next JS](https://img.shields.io/badge/Next-black?style=for-the-badge&logo=next.js&logoColor=white)
@@ -14,7 +14,7 @@ Created Codeiva - an online IDE with real-time collaboration and integrated Judg
 ## ⚙️  To run it on your local machine:
 1. Fork the repository.
 2. Clone it using `git clone`
-3. Enter the cloned directory using `cd prj-portfolio`
+3. Enter the cloned directory using `cd realtime-editor`
 4. Run `npm install`
 5. Start the local development server using `npm run server:develop` and then `npm run start:dev`
 
