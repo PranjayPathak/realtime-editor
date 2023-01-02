@@ -1,6 +1,8 @@
 <h1 align="center">Codeiva - Realtime Code Editor 👨🏼‍💻</h1>
 
-Created Codeiva - an online IDE with real-time collaboration and integrated JudgeO API for compilation. Used Sockets to connect all editors in the room and stream every code change in real-time. Having IntelliSense support for 40+ languages and 50+ themes.
+- Created Codeiva - an online IDE with real-time collaboration and integrated JudgeO API for compilation. 
+- Used Sockets to connect all editors in the room and stream every code change in real-time. 
+- Having IntelliSense support for 40+ languages and 50+ themes.
 ### 🌐  Live at: [https://codeiva.up.railway.app](https://codeiva.up.railway.app/)
 
 ## Made with
