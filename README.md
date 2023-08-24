@@ -1,4 +1,4 @@
-<h1 align="center">Codeiva - Realtime Code Editor 👨🏼‍💻</h1>
+<h1 align="center">Codeiva - Realtime Code Editor 👨🏼‍💻 </h1>
 
 - Codeiva is an online IDE, with real-time collaboration and integrated compiler. 
 - Used Sockets to connect all editors in the room and stream every code change in real-time. 
